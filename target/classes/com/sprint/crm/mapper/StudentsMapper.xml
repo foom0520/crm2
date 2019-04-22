@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sprint.crm.mapper.StudentsMapper" >
+  <resultMap id="BaseResultMap" type="com.sprint.crm.pojo.Students" >
+    <id column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="sources" property="sources" jdbcType="VARCHAR" />
+    <result column="source_site" property="sourceSite" jdbcType="VARCHAR" />
+    <result column="sourcekeyword" property="sourcekeyword" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="we_chat" property="weChat" jdbcType="VARCHAR" />
+    <result column="is_report" property="isReport" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="course" property="course" jdbcType="VARCHAR" />
+    <result column="is_effective" property="isEffective" jdbcType="VARCHAR" />
+    <result column="scoring" property="scoring" jdbcType="VARCHAR" />
+    <result column="is_visit" property="isVisit" jdbcType="VARCHAR" />
+    <result column="first_visit_time" property="firstVisitTime" jdbcType="TIMESTAMP" />
+    <result column="is_door" property="isDoor" jdbcType="VARCHAR" />
+    <result column="door_time" property="doorTime" jdbcType="TIMESTAMP" />
+    <result column="invalid_reason" property="invalidReason" jdbcType="VARCHAR" />
+    <result column="is_pay" property="isPay" jdbcType="VARCHAR" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="amount" property="amount" jdbcType="VARCHAR" />
+    <result column="is_refund" property="isRefund" jdbcType="VARCHAR" />
+    <result column="class_entry
+_time" property="classEntry
+Time" jdbcType="TIMESTAMP" />
+    <result column="is_class_entry" property="isClassEntry" jdbcType="VARCHAR" />
+    <result column="class_entry
+_remark" property="classEntry
+Remark" jdbcType="VARCHAR" />
+    <result column="refund_reason" property="refundReason" jdbcType="VARCHAR" />
+    <result column="deposit_amount" property="depositAmount" jdbcType="VARCHAR" />
+    <result column="deposit_time" property="depositTime" jdbcType="TIMESTAMP" />
+    <result column="entering_name" property="enteringName" jdbcType="VARCHAR" />
+    <result column="dynamic" property="dynamic" jdbcType="VARCHAR" />
+  </resultMap>
+    <sql id="Base_Column_List" >
+    student_id, name, age, phone, education, state, sources, source_site, sourcekeyword, 
+    qq, we_chat, is_report, remark, user_id, creat_time, area, course, is_effective, 
+    scoring, is_visit, first_visit_time, is_door, door_time, invalid_reason, is_pay, 
+    pay_time, amount, is_refund, class_entry
+_time, is_class_entry, class_entry
+_remark, 
+    refund_reason, deposit_amount, deposit_time, entering_name, dynamic
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from students
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </select>
+ 
+  
+  <insert id="insertSelective" parameterType="com.sprint.crm.pojo.Students" >
+    insert into students
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="education != null" >
+        education,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="sources != null" >
+        sources,
+      </if>
+      <if test="sourceSite != null" >
+        source_site,
+      </if>
+      <if test="sourcekeyword != null" >
+        sourcekeyword,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="weChat != null" >
+        we_chat,
+      </if>
+      <if test="isReport != null" >
+        is_report,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="course != null" >
+        course,
+      </if>
+      <if test="isEffective != null" >
+        is_effective,
+      </if>
+      <if test="scoring != null" >
+        scoring,
+      </if>
+      <if test="isVisit != null" >
+        is_visit,
+      </if>
+      <if test="firstVisitTime != null" >
+        first_visit_time,
+      </if>
+      <if test="isDoor != null" >
+        is_door,
+      </if>
+      <if test="doorTime != null" >
+        door_time,
+      </if>
+      <if test="invalidReason != null" >
+        invalid_reason,
+      </if>
+      <if test="isPay != null" >
+        is_pay,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="isRefund != null" >
+        is_refund,
+      </if>
+      <if test="classEntry
+Time != null" >
+        class_entry
+_time,
+      </if>
+      <if test="isClassEntry != null" >
+        is_class_entry,
+      </if>
+      <if test="classEntry
+Remark != null" >
+        class_entry
+_remark,
+      </if>
+      <if test="refundReason != null" >
+        refund_reason,
+      </if>
+      <if test="depositAmount != null" >
+        deposit_amount,
+      </if>
+      <if test="depositTime != null" >
+        deposit_time,
+      </if>
+      <if test="enteringName != null" >
+        entering_name,
+      </if>
+      <if test="dynamic != null" >
+        dynamic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="sources != null" >
+        #{sources,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSite != null" >
+        #{sourceSite,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcekeyword != null" >
+        #{sourcekeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="weChat != null" >
+        #{weChat,jdbcType=VARCHAR},
+      </if>
+      <if test="isReport != null" >
+        #{isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null" >
+        #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffective != null" >
+        #{isEffective,jdbcType=VARCHAR},
+      </if>
+      <if test="scoring != null" >
+        #{scoring,jdbcType=VARCHAR},
+      </if>
+      <if test="isVisit != null" >
+        #{isVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="firstVisitTime != null" >
+        #{firstVisitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDoor != null" >
+        #{isDoor,jdbcType=VARCHAR},
+      </if>
+      <if test="doorTime != null" >
+        #{doorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidReason != null" >
+        #{invalidReason,jdbcType=VARCHAR},
+      </if>
+      <if test="isPay != null" >
+        #{isPay,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=VARCHAR},
+      </if>
+      <if test="isRefund != null" >
+        #{isRefund,jdbcType=VARCHAR},
+      </if>
+      <if test="classEntry
+Time != null" >
+        #{classEntry
+Time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isClassEntry != null" >
+        #{isClassEntry,jdbcType=VARCHAR},
+      </if>
+      <if test="classEntry
+Remark != null" >
+        #{classEntry
+Remark,jdbcType=VARCHAR},
+      </if>
+      <if test="refundReason != null" >
+        #{refundReason,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAmount != null" >
+        #{depositAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="depositTime != null" >
+        #{depositTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enteringName != null" >
+        #{enteringName,jdbcType=VARCHAR},
+      </if>
+      <if test="dynamic != null" >
+        #{dynamic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+ 
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.sprint.crm.pojo.Students" >
+    update students
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="sources != null" >
+        sources = #{sources,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSite != null" >
+        source_site = #{sourceSite,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcekeyword != null" >
+        sourcekeyword = #{sourcekeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="weChat != null" >
+        we_chat = #{weChat,jdbcType=VARCHAR},
+      </if>
+      <if test="isReport != null" >
+        is_report = #{isReport,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="course != null" >
+        course = #{course,jdbcType=VARCHAR},
+      </if>
+      <if test="isEffective != null" >
+        is_effective = #{isEffective,jdbcType=VARCHAR},
+      </if>
+      <if test="scoring != null" >
+        scoring = #{scoring,jdbcType=VARCHAR},
+      </if>
+      <if test="isVisit != null" >
+        is_visit = #{isVisit,jdbcType=VARCHAR},
+      </if>
+      <if test="firstVisitTime != null" >
+        first_visit_time = #{firstVisitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDoor != null" >
+        is_door = #{isDoor,jdbcType=VARCHAR},
+      </if>
+      <if test="doorTime != null" >
+        door_time = #{doorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidReason != null" >
+        invalid_reason = #{invalidReason,jdbcType=VARCHAR},
+      </if>
+      <if test="isPay != null" >
+        is_pay = #{isPay,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=VARCHAR},
+      </if>
+      <if test="isRefund != null" >
+        is_refund = #{isRefund,jdbcType=VARCHAR},
+      </if>
+      <if test="classEntry
+Time != null" >
+        class_entry
+_time = #{classEntry
+Time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isClassEntry != null" >
+        is_class_entry = #{isClassEntry,jdbcType=VARCHAR},
+      </if>
+      <if test="classEntry
+Remark != null" >
+        class_entry
+_remark = #{classEntry
+Remark,jdbcType=VARCHAR},
+      </if>
+      <if test="refundReason != null" >
+        refund_reason = #{refundReason,jdbcType=VARCHAR},
+      </if>
+      <if test="depositAmount != null" >
+        deposit_amount = #{depositAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="depositTime != null" >
+        deposit_time = #{depositTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enteringName != null" >
+        entering_name = #{enteringName,jdbcType=VARCHAR},
+      </if>
+      <if test="dynamic != null" >
+        dynamic = #{dynamic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </update>
+ 
+</mapper>

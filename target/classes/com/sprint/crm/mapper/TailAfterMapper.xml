@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sprint.crm.mapper.TailAfterMapper" >
+  <resultMap id="BaseResultMap" type="com.sprint.crm.pojo.TailAfter" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="tail_after_time" property="tailAfterTime" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="next_tail_after_time" property="nextTailAfterTime" jdbcType="TIMESTAMP" />
+    <result column="tail_after_way" property="tailAfterWay" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+ <sql id="Base_Column_List" >
+    id, student_id, tail_after_time, content, next_tail_after_time, tail_after_way, remark
+  </sql>
+ 
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tail_after
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  
+  <insert id="insertSelective" parameterType="com.sprint.crm.pojo.TailAfter" >
+    insert into tail_after
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="tailAfterTime != null" >
+        tail_after_time,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="nextTailAfterTime != null" >
+        next_tail_after_time,
+      </if>
+      <if test="tailAfterWay != null" >
+        tail_after_way,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="tailAfterTime != null" >
+        #{tailAfterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="nextTailAfterTime != null" >
+        #{nextTailAfterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tailAfterWay != null" >
+        #{tailAfterWay,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+ 
+ 
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.sprint.crm.pojo.TailAfter" >
+    update tail_after
+    <set >
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="tailAfterTime != null" >
+        tail_after_time = #{tailAfterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="nextTailAfterTime != null" >
+        next_tail_after_time = #{nextTailAfterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tailAfterWay != null" >
+        tail_after_way = #{tailAfterWay,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+ 
+</mapper>
