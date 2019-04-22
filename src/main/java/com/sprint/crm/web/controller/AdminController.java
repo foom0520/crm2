@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 	@RequestMapping("admin")
 	public String admin() {
+		System.out.println("aaa");
 		return "index";
 	}
 }
