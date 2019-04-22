@@ -30,7 +30,7 @@
 			value="com.sprint.crm.entity"></property>
 		<!-- 扫描sql配置文件：mapper所需要的xml文件 -->
 		<property name="mapperLocations"
-			value="classpath:mapper/*.xml"></property>
+			value="/com/sprint/crm/dao/*.xml"></property>
 	</bean>
 
 	<!--4、配置扫描dao接口包，实现动态dao接口，注入到spring容器中 -->
