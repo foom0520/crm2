@@ -8,7 +8,7 @@ import com.sprint.crm.mapper.ModulesMapper;
 import com.sprint.crm.pojo.Modules;
 
 @Service
-public class ModulesDaoImpl  implements ModulesDao {
+public class ModulesServiceImpl implements ModulesService {
 	@Resource
 	private ModulesMapper modulesMapper;
 
@@ -29,5 +29,5 @@ public class ModulesDaoImpl  implements ModulesDao {
 		// TODO Auto-generated method stub
 		return updateByPrimaryKeySelective(record);
 	}
-  
+
 }

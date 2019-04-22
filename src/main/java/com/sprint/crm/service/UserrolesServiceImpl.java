@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 
 import com.sprint.crm.mapper.UserrolesMapper;
 import com.sprint.crm.pojo.Userroles;
+
 @Service
-public class UserrolesDaoImpl implements UserrolesDao {
+public class UserrolesServiceImpl implements UserrolesService {
 	@Resource
-	private  UserrolesMapper userrolesMapper;
+	private UserrolesMapper userrolesMapper;
+
 	@Override
 	public int insertSelective(Userroles record) {
 		// TODO Auto-generated method stub

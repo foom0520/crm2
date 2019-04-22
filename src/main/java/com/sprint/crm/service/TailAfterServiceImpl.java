@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 
 import com.sprint.crm.mapper.TailAfterMapper;
 import com.sprint.crm.pojo.TailAfter;
+
 @Service
-public class TailAfterDaoImpl implements TailAfterDao {
+public class TailAfterServiceImpl implements TailAfterService {
 	@Resource
 	private TailAfterMapper tsailAfterMapper;
+
 	@Override
 	public int insertSelective(TailAfter record) {
 		// TODO Auto-generated method stub

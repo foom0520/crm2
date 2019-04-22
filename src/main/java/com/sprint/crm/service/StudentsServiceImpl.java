@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 
 import com.sprint.crm.mapper.StudentsMapper;
 import com.sprint.crm.pojo.Students;
+
 @Service
-public class StudentsDaoImpl implements StudentsDao {
-   @Resource
-   private  StudentsMapper   studentsMapper;
+public class StudentsServiceImpl implements StudentsService {
+	@Resource
+	private StudentsMapper studentsMapper;
+
 	@Override
 	public int insertSelective(Students record) {
 		// TODO Auto-generated method stub

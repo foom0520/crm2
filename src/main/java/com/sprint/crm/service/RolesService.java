@@ -4,18 +4,12 @@ import com.sprint.crm.pojo.Roles;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface RolesDao {
-  
+public interface RolesService {
 
+	int insertSelective(Roles record);
 
-    int insertSelective(Roles record);
+	Roles selectByPrimaryKey(Integer roleId);
 
-
-    Roles selectByPrimaryKey(Integer roleId);
-
-
-
-    int updateByPrimaryKeySelective(Roles record);
-
+	int updateByPrimaryKeySelective(Roles record);
 
 }

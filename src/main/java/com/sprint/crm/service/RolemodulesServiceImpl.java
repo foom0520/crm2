@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 
 import com.sprint.crm.mapper.RolemodulesMapper;
 import com.sprint.crm.pojo.Rolemodules;
+
 @Service
-public class RolemodulesDaoImpl implements RolemodulesDao {
-    @Resource
-    private RolemodulesMapper rolemodulesMapper;
+public class RolemodulesServiceImpl implements RolemodulesService {
+	@Resource
+	private RolemodulesMapper rolemodulesMapper;
+
 	@Override
 	public int insertSelective(Rolemodules record) {
 		// TODO Auto-generated method stub

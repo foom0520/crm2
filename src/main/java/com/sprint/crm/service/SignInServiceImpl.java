@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 
 import com.sprint.crm.mapper.SignInMapper;
 import com.sprint.crm.pojo.SignIn;
+
 @Service
-public class SignInDaoImpl implements SignInDao {
-   @Resource
-   private SignInMapper   signInMapper;
+public class SignInServiceImpl implements SignInService {
+	@Resource
+	private SignInMapper signInMapper;
+
 	@Override
 	public int insertSelective(SignIn record) {
 		// TODO Auto-generated method stub

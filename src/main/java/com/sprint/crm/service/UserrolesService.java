@@ -4,18 +4,12 @@ import com.sprint.crm.pojo.Userroles;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface UserrolesDao {
+public interface UserrolesService {
 
+	int insertSelective(Userroles record);
 
+	Userroles selectByPrimaryKey(Integer id);
 
-
-    int insertSelective(Userroles record);
-
-
-    Userroles selectByPrimaryKey(Integer id);
-
-
-
-    int updateByPrimaryKeySelective(Userroles record);
+	int updateByPrimaryKeySelective(Userroles record);
 
 }

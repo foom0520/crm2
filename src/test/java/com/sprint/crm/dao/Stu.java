@@ -10,7 +10,7 @@ import com.sprint.crm.entity.Users;
 
 public class Stu extends BaseTest{
 	@Autowired
-	private UserDao userDao;
+	private UserService userDao;
 	@Test
 	public void testquery() {
 		List<Users> queryUser = userDao.queryUser();
