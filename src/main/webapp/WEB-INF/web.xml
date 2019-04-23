@@ -15,7 +15,7 @@
 			<param-value>classpath:spring/spring-*.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-	</servlet>
+	</servlet>	
 
 	<!-- Map all requests to the DispatcherServlet for handling -->
 	<servlet-mapping>
