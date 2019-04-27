@@ -3,77 +3,81 @@ package com.sprint.crm.pojo;
 import java.util.Date;
 
 public class Students {
-	private Integer studentId;
+    private Integer studentId;
 
-	private String name;
+    private String name;
 
-	private Integer age;
+    private Integer age;
 
-	private String phone;
+    private String phone;
 
-	private String education;
+    private String education;
 
-	private String state;
+    private String state;
 
-	private String sources;
+    private String sources;
 
-	private String sourceSite;
+    private String sourceSite;
 
-	private String sourcekeyword;
+    private String sourcekeyword;
 
-	private String qq;
+    private String qq;
 
-	private String weChat;
+    private String weChat;
 
-	private String isReport;
+    private String isReport;
 
-	private String remark;
+    private String remark;
 
-	private Integer userId;
+    private Integer userId1;
 
-	private Date creatTime;
+    private Integer userId2;
 
-	private String area;
+    private Date creatTime;
 
-	private String course;
+    private String area;
 
-	private String isEffective;
+    private String course;
 
-	private String scoring;
+    private String isEffective;
 
-	private String isVisit;
+    private String scoring;
 
-	private Date firstVisitTime;
+    private String isVisit;
 
-	private String isDoor;
+    private Date firstVisitTime;
 
-	private Date doorTime;
+    private String isDoor;
 
-	private String invalidReason;
+    private Date doorTime;
 
-	private String isPay;
+    private String invalidReason;
 
-	private Date payTime;
+    private String isPay;
 
-	private String amount;
+    private Date payTime;
 
-	private String isRefund;
+    private String amount;
 
-	private Date classEntryTime;
+    private String isRefund;
 
-	private String isClassEntry;
+    private Date classEntryTime;
 
-	private String classEntryRemark;
 
-	private String refundReason;
+    private String isClassEntry;
 
-	private String depositAmount;
+    private String classEntryRemark;
 
-	private Date depositTime;
 
-	private String enteringName;
+    private String refundReason;
 
-	private String dynamic;
+    private String depositAmount;
+
+    private Date depositTime;
+
+    private String enteringName;
+
+    private String dynamic;
 
 	public Students() {
 		super();
@@ -82,11 +86,11 @@ public class Students {
 
 	public Students(Integer studentId, String name, Integer age, String phone, String education, String state,
 			String sources, String sourceSite, String sourcekeyword, String qq, String weChat, String isReport,
-			String remark, Integer userId, Date creatTime, String area, String course, String isEffective,
-			String scoring, String isVisit, Date firstVisitTime, String isDoor, Date doorTime, String invalidReason,
-			String isPay, Date payTime, String amount, String isRefund, Date classEntryTime, String isClassEntry,
-			String classEntryRemark, String refundReason, String depositAmount, Date depositTime, String enteringName,
-			String dynamic) {
+			String remark, Integer userId1, Integer userId2, Date creatTime, String area, String course,
+			String isEffective, String scoring, String isVisit, Date firstVisitTime, String isDoor, Date doorTime,
+			String invalidReason, String isPay, Date payTime, String amount, String isRefund, Date classEntryTime,
+			String isClassEntry, String classEntryRemark, String refundReason, String depositAmount, Date depositTime,
+			String enteringName, String dynamic) {
 		super();
 		this.studentId = studentId;
 		this.name = name;
@@ -101,7 +105,8 @@ public class Students {
 		this.weChat = weChat;
 		this.isReport = isReport;
 		this.remark = remark;
-		this.userId = userId;
+		this.userId1 = userId1;
+		this.userId2 = userId2;
 		this.creatTime = creatTime;
 		this.area = area;
 		this.course = course;
@@ -230,12 +235,20 @@ public class Students {
 		this.remark = remark;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public Integer getUserId1() {
+		return userId1;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserId1(Integer userId1) {
+		this.userId1 = userId1;
+	}
+
+	public Integer getUserId2() {
+		return userId2;
+	}
+
+	public void setUserId2(Integer userId2) {
+		this.userId2 = userId2;
 	}
 
 	public Date getCreatTime() {
@@ -419,14 +432,14 @@ public class Students {
 		return "Students [studentId=" + studentId + ", name=" + name + ", age=" + age + ", phone=" + phone
 				+ ", education=" + education + ", state=" + state + ", sources=" + sources + ", sourceSite="
 				+ sourceSite + ", sourcekeyword=" + sourcekeyword + ", qq=" + qq + ", weChat=" + weChat + ", isReport="
-				+ isReport + ", remark=" + remark + ", userId=" + userId + ", creatTime=" + creatTime + ", area=" + area
-				+ ", course=" + course + ", isEffective=" + isEffective + ", scoring=" + scoring + ", isVisit="
-				+ isVisit + ", firstVisitTime=" + firstVisitTime + ", isDoor=" + isDoor + ", doorTime=" + doorTime
-				+ ", invalidReason=" + invalidReason + ", isPay=" + isPay + ", payTime=" + payTime + ", amount="
-				+ amount + ", isRefund=" + isRefund + ", classEntryTime=" + classEntryTime + ", isClassEntry="
-				+ isClassEntry + ", classEntryRemark=" + classEntryRemark + ", refundReason=" + refundReason
-				+ ", depositAmount=" + depositAmount + ", depositTime=" + depositTime + ", enteringName=" + enteringName
-				+ ", dynamic=" + dynamic + "]";
+				+ isReport + ", remark=" + remark + ", userId1=" + userId1 + ", userId2=" + userId2 + ", creatTime="
+				+ creatTime + ", area=" + area + ", course=" + course + ", isEffective=" + isEffective + ", scoring="
+				+ scoring + ", isVisit=" + isVisit + ", firstVisitTime=" + firstVisitTime + ", isDoor=" + isDoor
+				+ ", doorTime=" + doorTime + ", invalidReason=" + invalidReason + ", isPay=" + isPay + ", payTime="
+				+ payTime + ", amount=" + amount + ", isRefund=" + isRefund + ", classEntryTime=" + classEntryTime
+				+ ", isClassEntry=" + isClassEntry + ", classEntryRemark=" + classEntryRemark + ", refundReason="
+				+ refundReason + ", depositAmount=" + depositAmount + ", depositTime=" + depositTime + ", enteringName="
+				+ enteringName + ", dynamic=" + dynamic + "]";
 	}
-	
+
 }
