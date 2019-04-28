@@ -15,7 +15,8 @@
     <result column="we_chat" property="weChat" jdbcType="VARCHAR" />
     <result column="is_report" property="isReport" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_id1" property="userId1" jdbcType="INTEGER" />
+    <result column="user_id2" property="userId2" jdbcType="INTEGER" />
     <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
     <result column="area" property="area" jdbcType="VARCHAR" />
     <result column="course" property="course" jdbcType="VARCHAR" />
@@ -43,16 +44,17 @@ Remark" jdbcType="VARCHAR" />
     <result column="entering_name" property="enteringName" jdbcType="VARCHAR" />
     <result column="dynamic" property="dynamic" jdbcType="VARCHAR" />
   </resultMap>
-    <sql id="Base_Column_List" >
+  
+  <sql id="Base_Column_List" >
     student_id, name, age, phone, education, state, sources, source_site, sourcekeyword, 
-    qq, we_chat, is_report, remark, user_id, creat_time, area, course, is_effective, 
+    qq, we_chat, is_report, remark, user_id1, user_id2, creat_time, area, course, is_effective, 
     scoring, is_visit, first_visit_time, is_door, door_time, invalid_reason, is_pay, 
     pay_time, amount, is_refund, class_entry
 _time, is_class_entry, class_entry
 _remark, 
     refund_reason, deposit_amount, deposit_time, entering_name, dynamic
   </sql>
-
+ 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -103,8 +105,11 @@ _remark,
       <if test="remark != null" >
         remark,
       </if>
-      <if test="userId != null" >
-        user_id,
+      <if test="userId1 != null" >
+        user_id1,
+      </if>
+      <if test="userId2 != null" >
+        user_id2,
       </if>
       <if test="creatTime != null" >
         creat_time,
@@ -217,8 +222,11 @@ _remark,
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
+      <if test="userId1 != null" >
+        #{userId1,jdbcType=INTEGER},
+      </if>
+      <if test="userId2 != null" >
+        #{userId2,jdbcType=INTEGER},
       </if>
       <if test="creatTime != null" >
         #{creatTime,jdbcType=TIMESTAMP},
@@ -293,7 +301,6 @@ Remark,jdbcType=VARCHAR},
     </trim>
   </insert>
  
-  
   <update id="updateByPrimaryKeySelective" parameterType="com.sprint.crm.pojo.Students" >
     update students
     <set >
@@ -333,8 +340,11 @@ Remark,jdbcType=VARCHAR},
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
+      <if test="userId1 != null" >
+        user_id1 = #{userId1,jdbcType=INTEGER},
+      </if>
+      <if test="userId2 != null" >
+        user_id2 = #{userId2,jdbcType=INTEGER},
       </if>
       <if test="creatTime != null" >
         creat_time = #{creatTime,jdbcType=TIMESTAMP},
