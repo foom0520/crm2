@@ -6,15 +6,14 @@
 <meta charset="UTF-8">
 <title>CRM首页</title>
 
-<link href="css/default.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css"
-	href="js/themes/default/easyui.css" />
-<link rel="stylesheet" type="text/css" href="js/themes/icon.css" />
-<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
-<script type="text/javascript" src="js/jquery.easyui.min.1.2.2.js"></script>
-<script type="text/javascript" src='js/outlook2.js'>
-	
-</script>
+
+<link href=${pageContext.request.contextPath}/css/default.css rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href=${pageContext.request.contextPath}/js/themes/default/easyui.css />
+<link rel="stylesheet" type="text/css" href=${pageContext.request.contextPath}/js/themes/icon.css />
+<script type="text/javascript" src=${pageContext.request.contextPath}/js/jquery-1.4.4.min.js></script>
+<script type="text/javascript" src=${pageContext.request.contextPath}/js/jquery.easyui.min.1.2.2.js></script>
+<script type="text/javascript" src=${pageContext.request.contextPath}/js/outlook2.js></script>
+
 <script type="text/javascript">
 	var _menus = {
 		"menus" : [ {

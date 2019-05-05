@@ -2,14 +2,14 @@ package com.sprint.crm.pojo;
 
 import java.util.Date;
 
-public class Students {
+public class Students extends StudentsExt {
     private Integer studentId;
 
-    private String name;
+    private String name;//姓名
 
-    private Integer age;
+    private Integer age;//性别
 
-    private String phone;
+    private String phone;//电话
 
     private String education;
 
@@ -21,39 +21,39 @@ public class Students {
 
     private String sourcekeyword;
 
-    private String qq;
+    private String qq;//qq
 
-    private String weChat;
+    private String weChat;//微信
 
     private String isReport;
 
     private String remark;
 
-    private Integer userId1;
+    private Integer userId1;//网络咨询师
 
-    private Integer userId2;
+    private Integer userId2;//咨询师
 
-    private Date creatTime;
+    private String creatTime;//创建时间
 
     private String area;
 
     private String course;
 
-    private String isEffective;
+    private String isEffective;//是否有效
 
     private String scoring;
 
     private String isVisit;
 
-    private Date firstVisitTime;
+    private String firstVisitTime;//第一次访问时间
 
     private String isDoor;
 
-    private Date doorTime;
+    private String doorTime;
 
     private String invalidReason;
 
-    private String isPay;
+    private String isPay;//是否缴费
 
     private Date payTime;
 
@@ -63,11 +63,9 @@ public class Students {
 
     private Date classEntryTime;
 
-
     private String isClassEntry;
 
     private String classEntryRemark;
-
 
     private String refundReason;
 
@@ -86,8 +84,8 @@ public class Students {
 
 	public Students(Integer studentId, String name, Integer age, String phone, String education, String state,
 			String sources, String sourceSite, String sourcekeyword, String qq, String weChat, String isReport,
-			String remark, Integer userId1, Integer userId2, Date creatTime, String area, String course,
-			String isEffective, String scoring, String isVisit, Date firstVisitTime, String isDoor, Date doorTime,
+			String remark, Integer userId1, Integer userId2, String creatTime, String area, String course,
+			String isEffective, String scoring, String isVisit, String firstVisitTime, String isDoor, String doorTime,
 			String invalidReason, String isPay, Date payTime, String amount, String isRefund, Date classEntryTime,
 			String isClassEntry, String classEntryRemark, String refundReason, String depositAmount, Date depositTime,
 			String enteringName, String dynamic) {
@@ -251,11 +249,11 @@ public class Students {
 		this.userId2 = userId2;
 	}
 
-	public Date getCreatTime() {
+	public String getCreatTime() {
 		return creatTime;
 	}
 
-	public void setCreatTime(Date creatTime) {
+	public void setCreatTime(String creatTime) {
 		this.creatTime = creatTime;
 	}
 
@@ -299,11 +297,11 @@ public class Students {
 		this.isVisit = isVisit;
 	}
 
-	public Date getFirstVisitTime() {
+	public String getFirstVisitTime() {
 		return firstVisitTime;
 	}
 
-	public void setFirstVisitTime(Date firstVisitTime) {
+	public void setFirstVisitTime(String firstVisitTime) {
 		this.firstVisitTime = firstVisitTime;
 	}
 
@@ -315,11 +313,11 @@ public class Students {
 		this.isDoor = isDoor;
 	}
 
-	public Date getDoorTime() {
+	public String getDoorTime() {
 		return doorTime;
 	}
 
-	public void setDoorTime(Date doorTime) {
+	public void setDoorTime(String doorTime) {
 		this.doorTime = doorTime;
 	}
 

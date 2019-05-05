@@ -3,7 +3,8 @@
 <mapper namespace="com.sprint.crm.mapper.StudentsMapper" >
   <resultMap id="BaseResultMap" type="com.sprint.crm.pojo.Students" >
     <id column="student_id" property="studentId" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="na
+    me" property="name" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="education" property="education" jdbcType="VARCHAR" />
@@ -49,9 +50,7 @@ Remark" jdbcType="VARCHAR" />
     student_id, name, age, phone, education, state, sources, source_site, sourcekeyword, 
     qq, we_chat, is_report, remark, user_id1, user_id2, creat_time, area, course, is_effective, 
     scoring, is_visit, first_visit_time, is_door, door_time, invalid_reason, is_pay, 
-    pay_time, amount, is_refund, class_entry
-_time, is_class_entry, class_entry
-_remark, 
+    pay_time, amount, is_refund, class_entry_time, is_class_entry, class_entry_remark, 
     refund_reason, deposit_amount, deposit_time, entering_name, dynamic
   </sql>
  
@@ -421,5 +420,104 @@ Remark,jdbcType=VARCHAR},
     </set>
     where student_id = #{studentId,jdbcType=INTEGER}
   </update>
+  
+  <select id="pageData" resultMap="BaseResultMap">
+  	select *
+  	from students 
+  	<where>
+  		<if test="students.name != null and students.name != ''">
+  			and name like '%${students.name}%'
+  		</if>
+  		<if test="students.phone != null and students.phone != ''">
+  			and phone like '${students.phone}%'
+  		</if>
+  		<if test="students.userId2 != null and students.userId2 != ''">
+  			and userId2 = #{students.userId2}
+  		</if>
+  		<if test="students.isPay != null and students.isPay != ''">
+  			and is_Pay = #{students.isPay}
+  		</if>
+  		<if test="students.isEffective != null and students.isEffective != ''">
+  			and is_Effective = #{students.isEffective}
+  		</if>
+  		<if test="students.qq != null and students.qq != ''">
+  			and qq like '${students.qq}%'
+  		</if>
+  		<if test="students.dateType != null and students.dateType != ''">
+  			<if test="students.dateType == 1"><!-- 创建时间 -->
+  				<if test="students.creatTime != null and students.creatTime != '' and students.firstVisitTime != null and students.firstVisitTime != ''">
+  					and creat_Time between #{students.creatTime} and  #{students.firstVisitTime}
+  				</if>
+  			</if>
+  			<if test="students.dateType == 2"><!-- 第一次访问时间 -->
+  				<if test="students.creatTime != null and students.creatTime != '' and students.firstVisitTime != null and students.firstVisitTime != ''">
+  					and first_visit_time between #{students.creatTime} and #{students.firstVisitTime}
+  				</if>
+  			</if>
+  			<if test="students.dateType == 3"><!-- 上门时间 -->
+  				<if test="students.creatTime != null and students.creatTime != '' and students.firstVisitTime != null and students.firstVisitTime != ''">
+  					and door_time between #{students.creatTime} and  #{students.firstVisitTime}
+  				</if>
+  			</if>
+  		</if>
+  	</where>
+  	limit #{start},#{rows}
+  </select>
+  
+  <select id="pageCount" resultType="int">
+  	select count(*) from students
+  	<where>
+  		<if test="students.name != null and students.name != ''">
+  			and name like '%${students.name}%'
+  		</if>
+  		<if test="students.phone != null and students.phone != ''">
+  			and phone like '${students.phone}%'
+  		</if>
+  		<if test="students.userId2 != null and students.userId2 != ''">
+  			and userId2 = #{students.userId2}
+  		</if>
+  		<if test="students.isPay != null and students.isPay != ''">
+  			and is_Pay = #{students.isPay}
+  		</if>
+  		<if test="students.isEffective != null and students.isEffective != ''">
+  			and is_Effective = #{students.isEffective}
+  		</if>
+  		<if test="students.qq != null and students.qq != ''">
+  			and qq like '${students.qq}%'
+  		</if>
+  		<if test="students.dateType != null and students.dateType != ''">
+  			<if test="students.dateType == 1"><!-- 创建时间 -->
+  				<if test="students.creatTime != null and students.creatTime != '' and students.firstVisitTime != null and students.firstVisitTime != ''">
+  					and creat_Time between #{students.creatTime} and  #{students.firstVisitTime}
+  				</if>
+  			</if>
+  			<if test="students.dateType == 2"><!-- 第一次访问时间 -->
+  				<if test="students.creatTime != null and students.creatTime != '' and students.firstVisitTime != null and students.firstVisitTime != ''">
+  					and first_visit_time between #{students.creatTime} and #{students.firstVisitTime}
+  				</if>
+  			</if>
+  			<if test="students.dateType == 3"><!-- 上门时间 -->
+  				<if test="students.creatTime != null and students.creatTime != '' and students.firstVisitTime != null and students.firstVisitTime != ''">
+  					and door_time between #{students.creatTime} and  #{students.firstVisitTime}
+  				</if>
+  			</if>
+  		</if>
+  	</where>
+  </select>
+  <select id="fenpeis" parameterType="String" resultType="com.sprint.crm.pojo.Students">
+  	select s.student_id,s.name,u.login_name phone from students s LEFT JOIN `user` u on s.user_id2 = u.user_id WHERE s.student_id in (${ids})
+  </select>
+  
+  <update id="updatefenpeis">
+  	UPDATE students s set s.user_id2 = #{userId} where s.student_id in (${ids})
+  </update>
+  
+  <delete id="deleteByStudentId" parameterType="int">
+  	delete from students where student_id = #{studentId}
+  </delete>
+  
+  <delete id="deleteByStudentIds" parameterType="String">
+  	delete from students where student_id in (${ids})
+  </delete>
  
 </mapper>

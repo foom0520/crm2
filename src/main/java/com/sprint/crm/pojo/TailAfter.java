@@ -13,7 +13,7 @@ public class TailAfter {
 
     private Date nextTailAfterTime;
 
-    private String tailAfterWay;
+    private String tailAfterWay;//»Ø·Ã·½Ê½
 
     private String remark;
 

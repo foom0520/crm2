@@ -1,5 +1,7 @@
 package com.sprint.crm.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -28,6 +30,42 @@ public class StudentsServiceImpl implements StudentsService {
 	public int updateByPrimaryKeySelective(Students record) {
 		// TODO Auto-generated method stub
 		return studentsMapper.updateByPrimaryKeySelective(record);
+	}
+
+	@Override
+	public List<Students> pageData(Students students, int start, int rows) {
+		// TODO Auto-generated method stub
+		return studentsMapper.pageData(students, start, rows);
+	}
+
+	@Override
+	public int pageCount(Students students) {
+		// TODO Auto-generated method stub
+		return studentsMapper.pageCount(students);
+	}
+
+	@Override
+	public List<Students> fenpeis(String ids) {
+		// TODO Auto-generated method stub
+		return studentsMapper.fenpeis(ids);
+	}
+
+	@Override
+	public int updatefenpeis(String ids, int userId) {
+		// TODO Auto-generated method stub
+		return studentsMapper.updatefenpeis(ids, userId);
+	}
+
+	@Override
+	public int deleteByStudentId(Integer studentId) {
+		// TODO Auto-generated method stub
+		return studentsMapper.deleteByStudentId(studentId);
+	}
+
+	@Override
+	public int deleteByStudentIds(String ids) {
+		// TODO Auto-generated method stub
+		return studentsMapper.deleteByStudentIds(ids);
 	}
 
 }

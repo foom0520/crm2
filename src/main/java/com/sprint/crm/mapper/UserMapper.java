@@ -17,5 +17,13 @@ public interface UserMapper {
 
 
     int updateByPrimaryKeySelective(User record);
+    
+
+    /**
+     * 通过角色名查该角色的所有用户
+     * @param 角色名
+     * @return 用户集合
+     */
+    List<User> selectZiXunShis(String name);
 
 }

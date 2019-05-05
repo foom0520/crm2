@@ -1,5 +1,7 @@
 package com.sprint.crm.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,12 @@ public class UserServiceImpl implements UserService {
 	public int updateByPrimaryKeySelective(User record) {
 		// TODO Auto-generated method stub
 		return userMapper.updateByPrimaryKeySelective(record);
+	}
+
+	@Override
+	public List<User> selectZiXunShis(String name) {
+		// TODO Auto-generated method stub
+		return userMapper.selectZiXunShis(name);
 	}
 
 }
